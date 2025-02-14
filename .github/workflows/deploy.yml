@@ -1,4 +1,4 @@
-name: Deployment Pipeline
+name: Deploy FastAPI App
 
 on:
   push:
@@ -14,5 +14,5 @@ jobs:
 
       - name: Deploy Application
         run: |
-          echo "Deploying application..."
-          # Add your deployment commands here (Docker, GCP, AWS, etc.)
+          ssh user@34.30.208.142 'cd fastapi-book-project && git pull && docker-compose up --build -d'
+
